@@ -1,0 +1,77 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detector Automático - Small Mode</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+        }
+        video {
+            display: none;
+        }
+        #status {
+            position: absolute;
+            color: white;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 20;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">
+        <span id="txt">Cargando Inteligencia Artificial...</span><br>
+        <button id="forceBtn" style="display:none;">
+            HACER CLIC PARA FORZAR VIDEO
+        </button>
+    </div>
+    <!-- VIDEO -->
+    <video
+        id="video"
+        src="video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+    </video>
+    <!-- MÚSICA -->
+    <audio
+        id="music"
+        src="Motivational Background Music [J0BPoofmPkw].mp3"
+        loop
+        preload="auto">
+    </audio>
+    <canvas id="canvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <!-- JS PROPIO -->
+    <script src="fusion_completa.js"></script>
+</body>
+</html>
